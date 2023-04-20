@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title><%= title %></title>
+</head>
+<body>
+  <!-- Navbar -->
+  <%- include('../partials/navbar') %>
+
+  <!-- Quote form -->
+  <section id="quote-section">
+    <div class="container">
+      <h2>Get an Instant Quote</h2>
+      <form id="quote-form">
+        <label for="squareFeet">
+          Square Feet:
+          <input type="number" id="squareFeet" name="squareFeet" min="0" step="1" required>
+        </label>
+        <label for="sodType">
+          Sod Type:
+          <select id="sodType" name="sodType" required>
+            <% sodOptions.forEach(option => { %>
+              <option value="<%= option.value %>"><%= option.label %></option>
+            <% }); %>
+          </select>
+        </label>
+        <button type="submit">Calculate Quote</button>
+      </form>
+      <p id="quote-result"></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+
+  <script src="/js/quotes.js"></script>
+</body>
+</html>

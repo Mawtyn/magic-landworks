@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <source src="videos/art.mp4" type="video/mp4">
+  
+  <title><%= title %></title>
+  <!-- Add these lines inside the <head> tag -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <%- include('../partials/navbar') %>
+  
+  <!-- Hero section -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Your Sod Installation Specialists</h1>
+          <a href="/quote" class="button">Get Instant Quote</a>
+        </div>
+        <div class="carousel-container">
+          <!-- Carousel -->
+          <%- include('../partials/carousel') %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services section -->
+  <section id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <!-- Add one .service-card element for each service -->
+        <% const services = [
+          { title: "Sod Installation", description: "The real grass ready to be a lawn.", icon: "fas fa-seedling", imagePath: "/images/sod.png" },
+          { title: "Artificial Turf", description: "Flawless long life grass.", icon: "fas fa-tree", imagePath: "/images/AT.png" },
+          { title: "DG", description: "The ground to comfort you.", icon: "fas fa-mountain", imagePath: "/images/DG.png" },
+          { title: "Sprinkler System", description: "Installing the foundation for your lawn.", icon: "fas fa-shower", imagePath: "/images/ss.png" },
+          { title: "Mulch", description: "Emphasizing detail.", icon: "fas fa-leaf", imagePath: "/images/mulch.png" },
+          { title: "Gravel", description: "Perfect way to shape your space", icon: "fal fa-hand-rock", imagePath: "/images/gra.png" },
+          { title: "Plant Installation", description: "Make it green, it’s your own world.", icon: "far fa-thumbs-up", imagePath: "/images/PI.png" },
+          { title: "Drip System", description: "Saving water and maximizing efficiency for your plants.", icon: "fas fa-tint", imagePath: "/images/DS.png" },
+        ] %>
+        <% services.forEach(service => { %>
+          <div class="service-card" data-image-path="<%= service.imagePath %>">
+            <div class="card-inner">
+              <div class="card-front">
+                <i class="<%= service.icon %>"></i>
+                <h3><%= service.title %></h3>
+              </div>
+              <div class="card-back">
+                <p><%= service.description %></p>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video section -->
+  <section id="video-section">
+    <h2>Video Section</h2>
+    <div class="video-container">
+      <video controls>
+        <source src="/video/art.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+  
+  <!-- Reviews and pictures section -->
+  <section class="reviews-pictures">
+    <h2>Reviews and Pictures</h2>
+    <div class="review-group">
+      <div class="review-image">
+        <img src="/images/555.png" alt="Picture 1">
+        <p>I had my yard serviced by this company and i am very pleased! Response was very quick and a reasonable price. He showed up on time and did a great job ! I will be hiring for monthly service. Thank you again.</p>
+        <h3>-Jennifer B.</h3>
+      </div>
+      <div class="review-image">
+        <img src="/images/666.png" alt="Picture 2">
+        <p>Communication, prompt responses along with fine work and wonderful pricing are all stellar.
+          I own my own company so I REALLY value this level of customer service.  A very rare find these days.
+          Oh yes! My lawn now looks beautiful again too.</p>
+        <h3>-Corri L.</h3>
+      </div>
+      <div class="review-image">
+        <img src="/images/444.png" alt="Picture 3">
+        <p>Dave and his team are great.  They take pride in their work and they clearly value their customers.  They always listen to any concerns or requests.  Recommended!</p>
+        <h3>-Van Vliet H.</h3>
+      </div>
+      <div class="review-image">
+        <img src="/images/888.png" alt="Picture 4">
+        <p>I'm happy with the work done. David is a great communicator. He and his Dad know their stuff, do the job right, and charge a fair price. I'd use again.</p>
+        <h3>-James F.</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact and about section -->
+  <section id="contact-about" class="contact-about">
+    <div class="container">
+      <h2>Contact &amp; About</h2>
+      <!-- Add your contact and about information here -->
+      <div class="placeholder"></div>
+      <div class="placeholder"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+  
+  <div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
